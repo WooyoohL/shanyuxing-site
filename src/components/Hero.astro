@@ -9,16 +9,16 @@ const highlights = ['明确场景', '模块交付', '人工确认'];
   <div class="section-inner grid min-h-[calc(100svh-6rem)] items-start gap-12 py-10 lg:grid-cols-[0.98fr_1.02fr] lg:pt-16">
     <div class="fade-in select-none">
       <p class="eyebrow mb-5">AI 功能模块交付与项目协作</p>
-      <h1 class="max-w-[42rem] text-[2.18rem] font-medium leading-[1.08] tracking-normal text-ink sm:text-[3.18rem] lg:text-[3.86rem]">
+      <h1 class="max-w-[42rem] font-display text-[2.18rem] font-semibold leading-[1.05] tracking-[-0.025em] text-ink sm:text-[3.18rem] lg:text-[3.86rem]">
         <span class="block">为企业服务商</span>
         <span class="block">和中小团队</span>
-        <span class="blue-gradient-text block font-medium">交付可落地的 AI</span>
-        <span class="blue-gradient-text block font-medium">功能模块</span>
+        <span class="blue-gradient-text block">交付可落地的 AI</span>
+        <span class="blue-gradient-text block">功能模块</span>
       </h1>
-      <p class="mt-7 max-w-[38rem] text-base leading-8 text-muted sm:text-[1.05rem]">
+      <p class="mt-7 max-w-[38rem] font-sans text-base leading-[1.7] text-muted sm:text-[1.05rem]">
         面向软件公司、企业服务商、代运营团队和有明确场景的中小企业，交付可集成、可验收、可迭代的 AI 功能模块。
       </p>
-      <p class="mt-4 max-w-[36rem] text-[0.96rem] leading-8 text-muted">
+      <p class="mt-4 max-w-[36rem] font-sans text-[0.96rem] leading-[1.7] text-muted">
         从清晰的小场景开始，以真实资料、明确边界和人工确认节点，逐步形成稳定可用的业务流程。
       </p>
       <div class="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -31,7 +31,7 @@ const highlights = ['明确场景', '模块交付', '人工确认'];
       </div>
       <div class="mt-9 flex flex-wrap gap-3">
         {highlights.map((item) => (
-          <span class="rounded-full border border-black/10 bg-white/[0.56] px-4 py-2 text-sm font-medium text-muted shadow-sm backdrop-blur-xl">{item}</span>
+          <span class="rounded-full border border-black/10 bg-white/[0.56] px-4 py-2 font-sans text-sm font-medium leading-none text-muted shadow-sm backdrop-blur-xl">{item}</span>
         ))}
       </div>
     </div>
@@ -43,7 +43,7 @@ const highlights = ['明确场景', '模块交付', '人工确认'];
         <div class="relative overflow-hidden rounded-[24px] border border-black/10 bg-white/[0.58] p-4 backdrop-blur-2xl sm:p-5">
           <div class="flex items-center justify-between border-b border-black/10 pb-4">
             <div>
-              <p class="text-sm font-semibold text-ink">模块交付流程</p>
+              <p class="font-display text-sm font-semibold text-ink">模块交付流程</p>
               <p class="mt-1 text-sm text-muted">从需求到可用模块</p>
             </div>
             <span class="rounded-full border border-brand-500/[0.15] bg-brand-50 px-3 py-1 text-xs font-semibold text-brand-600">协作中</span>
@@ -53,25 +53,25 @@ const highlights = ['明确场景', '模块交付', '人工确认'];
             <div class="rounded-[20px] border border-black/10 bg-white/[0.72] p-4 shadow-sm">
               <div class="flex items-center justify-between gap-4">
                 <div>
-                  <p class="text-xs font-semibold text-muted">输入</p>
-                  <p class="mt-2 text-sm leading-6 text-ink sm:text-base">需求、资料、表格、工单</p>
+                  <p class="text-xs font-medium text-muted">输入</p>
+                  <p class="mt-2 text-sm leading-[1.65] text-ink sm:text-base">需求、资料、表格、工单</p>
                 </div>
                 <span class="h-2.5 w-2.5 shrink-0 rounded-full bg-brand-500"></span>
               </div>
             </div>
             <div class="grid gap-3 sm:grid-cols-2">
               <div class="rounded-[20px] border border-black/10 bg-white/[0.72] p-4 shadow-sm">
-                <p class="text-xs font-semibold text-muted">AI 处理</p>
-                <p class="mt-2 text-sm leading-6 text-ink">检索、生成、分类</p>
+                <p class="text-xs font-medium text-muted">AI 处理</p>
+                <p class="mt-2 text-sm leading-[1.65] text-ink">检索、生成、分类</p>
               </div>
               <div class="rounded-[20px] border border-black/10 bg-white/[0.72] p-4 shadow-sm">
-                <p class="text-xs font-semibold text-muted">人工确认</p>
-                <p class="mt-2 text-sm leading-6 text-ink">边界、规则、审核</p>
+                <p class="text-xs font-medium text-muted">人工确认</p>
+                <p class="mt-2 text-sm leading-[1.65] text-ink">边界、规则、审核</p>
               </div>
             </div>
             <div class="rounded-[20px] border border-brand-500/[0.16] bg-brand-50/[0.82] p-4 shadow-sm">
               <p class="text-xs font-semibold text-brand-600">输出</p>
-              <p class="mt-2 text-sm leading-6 text-ink sm:text-base">功能模块、流程节点、交付说明</p>
+              <p class="mt-2 text-sm leading-[1.65] text-ink sm:text-base">功能模块、流程节点、交付说明</p>
             </div>
           </div>
 

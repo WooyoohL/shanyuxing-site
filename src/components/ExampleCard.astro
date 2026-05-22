@@ -18,12 +18,12 @@ const rows = [
 ---
 
 <article class="surface-card flex h-full flex-col p-6 lg:p-7">
-  <h3 class="text-xl font-medium leading-tight text-ink">{title}</h3>
+  <h3 class="font-display text-xl font-semibold leading-[1.16] tracking-[-0.006em] text-ink">{title}</h3>
   <div class="mt-6 grid flex-1 gap-4">
     {rows.map(([label, value]) => (
       <div class="rounded-[20px] border border-black/10 bg-white/[0.46] p-4">
-        <p class="text-xs font-semibold text-brand-600">{label}</p>
-        <p class="mt-2 text-sm leading-6 text-muted">{value}</p>
+        <p class="text-xs font-medium text-brand-600">{label}</p>
+        <p class="mt-2 font-sans text-sm font-normal leading-[1.65] text-muted">{value}</p>
       </div>
     ))}
   </div>
