@@ -52,11 +52,16 @@ const fields = [
       </div>
 
       <div class="surface-card border-dashed border-brand-200/80 bg-brand-50/60 p-6 text-center">
-        <div class="mx-auto grid aspect-square max-w-48 place-items-center rounded-[1rem] bg-white/88 text-sm font-medium leading-6 text-slate-500 shadow-sm ring-1 ring-white/80">
-          微信 / 企业微信<br />二维码占位
+        <div class="mx-auto max-w-48 overflow-hidden rounded-[1rem] bg-white p-2 shadow-sm ring-1 ring-white/80">
+          <img
+            src={`${import.meta.env.BASE_URL}wechat-qr.png`}
+            alt="微信 / 企业微信二维码"
+            class="h-auto w-full rounded-[0.75rem]"
+            loading="lazy"
+          />
         </div>
         <p class="mt-4 text-sm leading-6 text-slate-500">
-          后续可替换为 public/wechat-qr.png
+          扫码添加微信 / 企业微信沟通
         </p>
       </div>
     </div>
