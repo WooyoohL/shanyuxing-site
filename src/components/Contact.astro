@@ -1,0 +1,118 @@
+---
+const fields = [
+  '称呼',
+  '公司或行业',
+  '联系方式',
+  '预算范围',
+  '想解决的业务问题',
+  '现在如何处理',
+  '希望 AI 输出什么结果',
+];
+---
+
+<section id="contact" class="snap-section section-pad min-h-[78svh] bg-white">
+  <div class="section-inner grid items-start gap-12 lg:grid-cols-[0.95fr_1.05fr]">
+    <div class="fade-in">
+      <p class="eyebrow mb-3">联系我们</p>
+      <h2 class="text-3xl font-medium tracking-normal text-ink sm:text-4xl">描述你的业务问题</h2>
+      <p class="mt-5 text-base leading-8 text-slate-600 sm:text-lg">
+        你不需要提前准备完整方案。只要说明当前最重复、最耗时或最容易出错的业务环节，我们会判断是否适合做成 AI 工具或自动化流程。
+      </p>
+      <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+        <a
+          class="pill-button pill-primary"
+          href="https://wj.qq.com/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          填写需求表单
+        </a>
+        <button
+          class="pill-button pill-secondary"
+          type="button"
+          data-copy-email="contact@shanyuxing-ai.com"
+          aria-label="复制邮箱地址 contact@shanyuxing-ai.com"
+        >
+          contact@shanyuxing-ai.com
+        </button>
+      </div>
+    </div>
+
+    <div class="grid gap-5 md:grid-cols-[1fr_0.82fr]">
+      <div class="surface-card p-6">
+        <h3 class="text-lg font-medium text-ink">填写前可先准备</h3>
+        <div class="mt-5 flex flex-wrap gap-2">
+          {fields.map((field) => (
+            <span class="rounded-full border border-slate-100 bg-white/85 px-3 py-2 text-sm text-slate-700 shadow-sm">{field}</span>
+          ))}
+        </div>
+        <p class="mt-6 text-sm leading-6 text-slate-500">
+          是否有样例可以说明也可以补充，但第一版不要求上传文件。
+        </p>
+      </div>
+
+      <div class="surface-card border-dashed border-brand-200/80 bg-brand-50/60 p-6 text-center">
+        <div class="mx-auto grid aspect-square max-w-48 place-items-center rounded-[1rem] bg-white/88 text-sm font-medium leading-6 text-slate-500 shadow-sm ring-1 ring-white/80">
+          微信 / 企业微信<br />二维码占位
+        </div>
+        <p class="mt-4 text-sm leading-6 text-slate-500">
+          后续可替换为 public/wechat-qr.png
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="pointer-events-none fixed left-1/2 top-1/2 z-[60] -translate-x-1/2 -translate-y-1/2 scale-95 rounded-full border border-brand-100 bg-white px-4 py-2 text-sm font-semibold text-brand-700 opacity-0 shadow-float backdrop-blur-xl transition-all duration-200"
+    role="status"
+    aria-live="polite"
+    data-copy-toast
+  >
+    已复制地址
+  </div>
+</section>
+
+<script>
+  const copyButton = document.querySelector('[data-copy-email]');
+  const copyToast = document.querySelector('[data-copy-toast]');
+  let toastTimer;
+
+  const showCopyToast = () => {
+    copyToast?.classList.remove('scale-95', 'opacity-0');
+    copyToast?.classList.add('scale-100', 'opacity-100');
+
+    window.clearTimeout(toastTimer);
+    toastTimer = window.setTimeout(() => {
+      copyToast?.classList.add('scale-95', 'opacity-0');
+      copyToast?.classList.remove('scale-100', 'opacity-100');
+    }, 1800);
+  };
+
+  const fallbackCopy = (text) => {
+    const textarea = document.createElement('textarea');
+    textarea.value = text;
+    textarea.setAttribute('readonly', '');
+    textarea.style.position = 'fixed';
+    textarea.style.opacity = '0';
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand('copy');
+    textarea.remove();
+  };
+
+  copyButton?.addEventListener('click', async () => {
+    const email = copyButton.getAttribute('data-copy-email');
+
+    if (!email) {
+      return;
+    }
+
+    try {
+      await navigator.clipboard.writeText(email);
+    } catch {
+      fallbackCopy(email);
+    }
+
+    showCopyToast();
+  });
+</script>

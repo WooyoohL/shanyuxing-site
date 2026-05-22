@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="山欲行科技">
+  <rect width="64" height="64" rx="14" fill="#2563eb"/>
+  <path d="M14 43h36L39 19 30 35l-5-8-11 16Z" fill="#ffffff"/>
+  <path d="M19 45h26" stroke="#dbeafe" stroke-width="4" stroke-linecap="round"/>
+</svg>

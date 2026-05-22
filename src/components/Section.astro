@@ -1,0 +1,30 @@
+---
+interface Props {
+  id: string;
+  title: string;
+  subtitle?: string;
+  eyebrow?: string;
+  tone?: 'white' | 'blue' | 'slate';
+}
+
+const { id, title, subtitle, eyebrow, tone = 'white' } = Astro.props;
+
+const toneClass = {
+  white: 'bg-white/80',
+  blue: 'bg-[radial-gradient(circle_at_20%_0%,rgba(219,234,254,0.75),transparent_28rem),linear-gradient(180deg,#f8fbff_0%,#eef6ff_100%)]',
+  slate: 'bg-slate-50/[0.88]',
+}[tone];
+---
+
+<section id={id} class:list={['snap-section section-pad relative min-h-[78svh] overflow-hidden', toneClass]}>
+  <div class="section-inner">
+    <div class="fade-in mx-auto max-w-3xl text-center">
+      {eyebrow && <p class="eyebrow mb-3">{eyebrow}</p>}
+      <h2 class="text-3xl font-medium tracking-normal text-ink sm:text-4xl">{title}</h2>
+      {subtitle && <p class="mt-4 text-base leading-8 text-slate-500 sm:text-lg">{subtitle}</p>}
+    </div>
+    <div class="mt-11">
+      <slot />
+    </div>
+  </div>
+</section>

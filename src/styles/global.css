@@ -1,0 +1,148 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply m-0 bg-slate-50 font-sans text-ink;
+    background:
+      radial-gradient(circle at 12% 8%, rgba(219, 234, 254, 0.8), transparent 26rem),
+      radial-gradient(circle at 88% 12%, rgba(191, 219, 254, 0.55), transparent 25rem),
+      linear-gradient(180deg, #f8fafc 0%, #ffffff 44%, #f8fafc 100%);
+  }
+
+  a {
+    @apply transition-colors;
+  }
+}
+
+@layer components {
+  .page-shell {
+    @apply overflow-x-hidden;
+  }
+
+  .snap-section {
+    scroll-margin-top: 5rem;
+  }
+
+  .section-pad {
+    @apply px-5 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-20;
+  }
+
+  .section-inner {
+    @apply mx-auto max-w-7xl;
+  }
+
+  .eyebrow {
+    @apply text-sm font-semibold text-brand-600;
+    letter-spacing: 0.01em;
+  }
+
+  .fade-in {
+    animation: fade-in 0.56s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .surface-card {
+    border: 1px solid rgba(226, 232, 240, 0.86);
+    border-radius: 1.25rem;
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.82)),
+      radial-gradient(circle at 12% 0%, rgba(219, 234, 254, 0.62), transparent 18rem);
+    box-shadow:
+      0 1px 2px rgba(15, 23, 42, 0.04),
+      0 18px 58px rgba(15, 23, 42, 0.06);
+    backdrop-filter: blur(18px);
+    transition:
+      transform 220ms ease,
+      border-color 220ms ease,
+      box-shadow 220ms ease,
+      background 220ms ease;
+  }
+
+  .surface-card:hover {
+    border-color: rgba(147, 197, 253, 0.58);
+    box-shadow:
+      0 2px 4px rgba(15, 23, 42, 0.05),
+      0 24px 70px rgba(37, 99, 235, 0.11);
+    transform: translateY(-2px);
+  }
+
+  .pill-button {
+    @apply inline-flex min-h-12 items-center justify-center rounded-full px-6 py-3 text-base font-semibold transition-all duration-200;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.08);
+  }
+
+  .pill-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.12);
+  }
+
+  .pill-button:active {
+    transform: translateY(0) scale(0.985);
+  }
+
+  .pill-primary {
+    @apply bg-brand-600 text-white;
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 58%, #1e40af 100%);
+  }
+
+  .pill-primary:hover {
+    background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+  }
+
+  .pill-secondary {
+    @apply border border-slate-200 bg-white/85 text-slate-700;
+  }
+
+  .pill-secondary:hover {
+    border-color: #bfdbfe;
+    color: #1e40af;
+    background: rgba(255, 255, 255, 0.96);
+  }
+
+  .blue-gradient-text {
+    background: linear-gradient(100deg, #172554 0%, #1d4ed8 48%, #64748b 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

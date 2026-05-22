@@ -1,0 +1,95 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Navbar from '@components/Navbar.astro';
+import Hero from '@components/Hero.astro';
+import Section from '@components/Section.astro';
+import ServiceCard from '@components/ServiceCard.astro';
+import CapabilityCard from '@components/CapabilityCard.astro';
+import ExampleCard from '@components/ExampleCard.astro';
+import Contact from '@components/Contact.astro';
+import Footer from '@components/Footer.astro';
+import { services } from '@data/services';
+import { capabilities } from '@data/capabilities';
+import { examples } from '@data/examples';
+
+const serviceSteps = [
+  '业务问题初步判断',
+  '小场景验证',
+  'AI 应用开发',
+  '自动化流程集成',
+  '长期维护与迭代',
+];
+---
+
+<BaseLayout>
+  <Navbar />
+  <main class="page-shell">
+    <Hero />
+
+    <Section
+      id="services"
+      title="服务场景"
+      subtitle="围绕真实业务中的重复劳动、信息整理和人工判断环节，设计适合中小团队落地的 AI 应用。"
+      tone="white"
+    >
+      <div class="grid gap-5 md:grid-cols-2">
+        {services.map((service, index) => (
+          <ServiceCard title={service.title} description={service.description} index={index + 1} />
+        ))}
+      </div>
+    </Section>
+
+    <Section
+      id="capabilities"
+      title="技术能力"
+      subtitle="我们关注的是业务可用性，而不是单纯展示模型能力。技术会根据场景组合使用。"
+      tone="blue"
+    >
+      <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        {capabilities.map((capability) => (
+          <CapabilityCard title={capability.title} description={capability.description} />
+        ))}
+      </div>
+      <div class="mx-auto mt-8 flex max-w-3xl flex-wrap justify-center gap-3">
+        {['大模型', 'RAG', 'Agent', 'API', '自动化工作流'].map((tag) => (
+          <span class="rounded-full border border-brand-100 bg-white/82 px-4 py-2 text-sm font-medium text-brand-700 shadow-sm backdrop-blur">{tag}</span>
+        ))}
+      </div>
+    </Section>
+
+    <Section
+      id="examples"
+      title="常见落地场景"
+      subtitle="以下为常见可交付场景示例，用于说明适合从哪些小场景开始验证，不代表真实客户案例。"
+      tone="white"
+    >
+      <div class="grid gap-5 md:grid-cols-2">
+        {examples.map((example) => (
+          <ExampleCard title={example.title} content={example.content} suitableFor={example.suitableFor} />
+        ))}
+      </div>
+    </Section>
+
+    <Section
+      id="service-model"
+      title="服务方式"
+      subtitle="不从大而全系统开始，而是先明确一个可验证的小场景，再根据使用效果逐步扩展。"
+      tone="slate"
+    >
+      <ol class="mx-auto grid max-w-5xl gap-4 md:grid-cols-5">
+        {serviceSteps.map((step, index) => (
+          <li class="surface-card p-5">
+            <span class="text-sm font-semibold text-brand-600">{String(index + 1).padStart(2, '0')}</span>
+            <p class="mt-3 text-base font-medium leading-7 text-ink">{step}</p>
+          </li>
+        ))}
+      </ol>
+      <p class="mx-auto mt-8 max-w-3xl text-center leading-7 text-slate-600">
+        适合从小场景开始，小范围验证结果，再逐步扩展到更多业务环节。关键节点保留人工确认，让工具真正服务于现有团队。
+      </p>
+    </Section>
+
+    <Contact />
+  </main>
+  <Footer />
+</BaseLayout>
