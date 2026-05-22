@@ -2,21 +2,21 @@
 const highlights = ['AI 功能模块', '项目协作补位', '小场景自动化交付'];
 ---
 
-<section id="home" class="snap-section relative isolate min-h-screen overflow-hidden bg-slate-50 px-5 pt-20 sm:px-6 lg:px-8">
-  <div class="pointer-events-none absolute left-1/2 top-0 -z-10 h-[34rem] w-[48rem] -translate-x-1/2 rounded-full bg-brand-100/55 blur-3xl"></div>
-  <div class="pointer-events-none absolute right-[-10rem] top-36 -z-10 h-[28rem] w-[28rem] rounded-full bg-blue-200/35 blur-3xl"></div>
+<section id="home" class="snap-section relative isolate min-h-[100svh] overflow-hidden bg-canvas px-5 pt-24 sm:px-6 lg:px-8">
+  <div class="pointer-events-none absolute left-1/2 top-[-12rem] -z-10 h-[34rem] w-[56rem] -translate-x-1/2 rounded-full bg-brand-500/[0.10] blur-3xl"></div>
+  <div class="pointer-events-none absolute right-[-14rem] top-44 -z-10 h-[30rem] w-[30rem] rounded-full bg-brand-500/[0.08] blur-3xl"></div>
 
-  <div class="section-inner grid min-h-[calc(100svh-5rem)] items-center gap-10 py-8 lg:-translate-y-8 lg:grid-cols-[1.02fr_0.98fr] lg:py-10">
+  <div class="section-inner grid min-h-[calc(100svh-6rem)] items-start gap-12 py-10 lg:grid-cols-[0.98fr_1.02fr] lg:pt-16">
     <div class="fade-in">
-      <p class="eyebrow mb-4">Shanyuxing Technology</p>
-      <h1 class="max-w-[45rem] text-[2.08rem] font-medium leading-[1.18] tracking-normal text-ink sm:text-5xl lg:text-[3.08rem] lg:leading-[1.12]">
+      <p class="eyebrow mb-5">AI 功能模块交付与项目协作</p>
+      <h1 class="max-w-[48rem] text-[2.65rem] font-medium leading-[1.02] tracking-normal text-ink sm:text-[4.25rem] lg:text-[5rem]">
         <span class="block">为企业服务商和中小团队，</span>
         <span class="blue-gradient-text block font-semibold">交付可落地的 AI 功能模块</span>
       </h1>
-      <p class="mt-6 max-w-[43rem] text-[1.05rem] leading-8 text-slate-600 sm:text-lg">
+      <p class="mt-7 max-w-[42rem] text-[1.05rem] leading-8 text-muted sm:text-lg">
         山欲行科技提供 AI 应用开发与自动化交付服务，支持软件公司、企业服务商、代运营团队和有明确场景的中小企业，将客服知识库、表格分析、外贸回复、评论分类等业务环节做成可用的 AI 工具与半自动化流程。
       </p>
-      <p class="mt-4 max-w-[40rem] text-base leading-8 text-slate-500">
+      <p class="mt-4 max-w-[38rem] text-base leading-8 text-muted">
         我们不做泛泛的“智能化转型”包装，更适合从一个明确的小场景、一个功能模块或一次项目协作开始。
       </p>
       <div class="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -29,41 +29,54 @@ const highlights = ['AI 功能模块', '项目协作补位', '小场景自动化
       </div>
       <div class="mt-9 flex flex-wrap gap-3">
         {highlights.map((item) => (
-          <span class="rounded-full border border-brand-100/80 bg-white/75 px-4 py-2 text-sm font-medium text-brand-700 shadow-sm backdrop-blur">{item}</span>
+          <span class="rounded-full border border-black/10 bg-white/[0.56] px-4 py-2 text-sm font-medium text-muted shadow-sm backdrop-blur-xl">{item}</span>
         ))}
       </div>
     </div>
 
-    <div class="fade-in relative">
-      <div class="pointer-events-none absolute inset-8 rounded-[2rem] bg-brand-200/45 blur-3xl"></div>
-      <div class="surface-card relative overflow-hidden p-4 sm:p-5">
-        <div class="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-white to-transparent"></div>
-        <div class="relative rounded-[1rem] border border-white/80 bg-slate-50/70 p-4 sm:p-5">
-          <div class="flex items-center justify-between border-b border-slate-200/80 pb-4">
+    <div class="fade-in relative lg:pt-6">
+      <div class="pointer-events-none absolute inset-x-10 top-6 h-40 rounded-full bg-brand-500/[0.12] blur-3xl"></div>
+      <div class="surface-card subtle-glow relative overflow-hidden p-4 sm:p-5">
+        <div class="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-white/70 to-transparent"></div>
+        <div class="relative overflow-hidden rounded-[24px] border border-black/10 bg-white/[0.58] p-4 backdrop-blur-2xl sm:p-5">
+          <div class="flex items-center justify-between border-b border-black/10 pb-4">
             <div>
-              <p class="text-sm font-semibold text-ink">AI 功能模块交付</p>
-              <p class="mt-1 text-sm text-slate-500">从项目协作或明确场景出发</p>
+              <p class="text-sm font-semibold text-ink">模块交付流程</p>
+              <p class="mt-1 text-sm text-muted">输入到上线前确认</p>
             </div>
-            <span class="rounded-full bg-brand-100/85 px-3 py-1 text-xs font-semibold text-brand-700 ring-1 ring-brand-200/70">Module</span>
+            <span class="rounded-full border border-brand-500/[0.15] bg-brand-50 px-3 py-1 text-xs font-semibold text-brand-600">协作中</span>
           </div>
 
-          <div class="relative mt-6 grid gap-4">
-            <div class="absolute left-[1.1rem] top-7 h-[calc(100%-3.5rem)] w-px bg-gradient-to-b from-brand-200 via-slate-200 to-brand-100"></div>
-            <div class="relative rounded-[0.9rem] border border-white/90 bg-white/88 p-4 pl-12 shadow-sm backdrop-blur">
-              <span class="absolute left-4 top-5 h-3 w-3 rounded-full border-2 border-white bg-brand-500 shadow-[0_0_0_4px_rgba(219,234,254,0.9)]"></span>
-              <p class="text-xs font-semibold text-slate-500">输入</p>
-              <p class="mt-2 text-sm leading-7 text-slate-700 sm:text-base">客户需求、业务资料、表格、工单、知识文档</p>
+          <div class="mt-5 grid gap-3">
+            <div class="rounded-[20px] border border-black/10 bg-white/[0.72] p-4 shadow-sm">
+              <div class="flex items-center justify-between gap-4">
+                <div>
+                  <p class="text-xs font-semibold text-muted">输入</p>
+                  <p class="mt-2 text-sm leading-6 text-ink sm:text-base">客户需求、业务资料、表格、工单、知识文档</p>
+                </div>
+                <span class="h-2.5 w-2.5 shrink-0 rounded-full bg-brand-500"></span>
+              </div>
             </div>
-            <div class="relative rounded-[0.9rem] border border-white/90 bg-white/88 p-4 pl-12 shadow-sm backdrop-blur">
-              <span class="absolute left-4 top-5 h-3 w-3 rounded-full border-2 border-white bg-brand-500 shadow-[0_0_0_4px_rgba(219,234,254,0.9)]"></span>
-              <p class="text-xs font-semibold text-slate-500">处理</p>
-              <p class="mt-2 text-sm leading-7 text-slate-700 sm:text-base">模块开发、规则约束、资料检索、系统对接与人工确认</p>
+            <div class="grid gap-3 sm:grid-cols-2">
+              <div class="rounded-[20px] border border-black/10 bg-white/[0.72] p-4 shadow-sm">
+                <p class="text-xs font-semibold text-muted">AI 处理</p>
+                <p class="mt-2 text-sm leading-6 text-ink">检索资料、生成草稿、分类标签、异常提示</p>
+              </div>
+              <div class="rounded-[20px] border border-black/10 bg-white/[0.72] p-4 shadow-sm">
+                <p class="text-xs font-semibold text-muted">人工确认</p>
+                <p class="mt-2 text-sm leading-6 text-ink">保留关键判断、修改建议和交付边界</p>
+              </div>
             </div>
-            <div class="relative rounded-[0.9rem] border border-white/90 bg-white/88 p-4 pl-12 shadow-sm backdrop-blur">
-              <span class="absolute left-4 top-5 h-3 w-3 rounded-full border-2 border-white bg-brand-500 shadow-[0_0_0_4px_rgba(219,234,254,0.9)]"></span>
-              <p class="text-xs font-semibold text-slate-500">输出</p>
-              <p class="mt-2 text-sm leading-7 text-slate-700 sm:text-base">可嵌入项目的功能模块、半自动化流程与交付说明</p>
+            <div class="rounded-[20px] border border-brand-500/[0.16] bg-brand-50/[0.82] p-4 shadow-sm">
+              <p class="text-xs font-semibold text-brand-600">输出</p>
+              <p class="mt-2 text-sm leading-6 text-ink sm:text-base">可嵌入项目的功能模块、半自动化流程与交付说明</p>
             </div>
+          </div>
+
+          <div class="mt-4 grid grid-cols-3 gap-2 text-center text-xs font-medium text-muted">
+            <span class="rounded-full bg-white/[0.62] px-3 py-2">可集成</span>
+            <span class="rounded-full bg-white/[0.62] px-3 py-2">可验收</span>
+            <span class="rounded-full bg-white/[0.62] px-3 py-2">可迭代</span>
           </div>
         </div>
       </div>

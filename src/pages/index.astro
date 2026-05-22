@@ -4,7 +4,6 @@ import Navbar from '@components/Navbar.astro';
 import Hero from '@components/Hero.astro';
 import Section from '@components/Section.astro';
 import ServiceCard from '@components/ServiceCard.astro';
-import CapabilityCard from '@components/CapabilityCard.astro';
 import ExampleCard from '@components/ExampleCard.astro';
 import Contact from '@components/Contact.astro';
 import Footer from '@components/Footer.astro';
@@ -54,25 +53,33 @@ const audiences = [
         {audiences.map((audience, index) => (
           <article class="surface-card h-full p-6 lg:p-7">
             <span class="text-sm font-semibold text-brand-600">{String(index + 1).padStart(2, '0')}</span>
-            <h3 class="mt-4 text-xl font-medium leading-7 text-ink">{audience.title}</h3>
-            <p class="mt-4 leading-8 text-slate-600">{audience.description}</p>
+            <h3 class="mt-5 max-w-sm text-2xl font-medium leading-tight text-ink">{audience.title}</h3>
+            <p class="mt-5 leading-8 text-muted">{audience.description}</p>
           </article>
         ))}
       </div>
     </Section>
 
-    <Section
+    <section
       id="services"
-      title="可交付模块"
-      subtitle="不从泛泛方案开始，而是把明确业务环节拆成可开发、可集成、可验收的 AI 功能模块。"
-      tone="blue"
+      class="snap-section section-pad relative overflow-hidden bg-[radial-gradient(circle_at_18%_4%,rgba(0,113,227,0.08),transparent_30rem)]"
     >
-      <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-        {services.map((service, index) => (
-          <ServiceCard title={service.title} description={service.description} index={index + 1} />
-        ))}
+      <div class="section-inner grid gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
+        <div class="fade-in lg:sticky lg:top-28">
+          <p class="eyebrow mb-3">Module Delivery</p>
+          <h2 class="max-w-xl text-3xl font-medium leading-tight text-ink sm:text-5xl">可交付模块</h2>
+          <p class="mt-5 max-w-xl text-base leading-8 text-muted sm:text-lg">
+            不从泛泛方案开始，而是把明确业务环节拆成可开发、可集成、可验收的 AI 功能模块。
+          </p>
+        </div>
+
+        <div class="grid gap-4">
+          {services.map((service, index) => (
+            <ServiceCard title={service.title} description={service.description} index={index + 1} />
+          ))}
+        </div>
       </div>
-    </Section>
+    </section>
 
     <Section
       id="examples"
@@ -107,23 +114,33 @@ const audiences = [
           </li>
         ))}
       </ol>
-      <p class="mx-auto mt-8 max-w-3xl text-center leading-7 text-slate-600">
+      <p class="mx-auto mt-8 max-w-3xl text-center leading-7 text-muted">
         合作前先明确交付边界、数据来源、使用场景和人工确认节点，优先完成能被真实团队使用的小模块，再根据反馈维护与迭代。
       </p>
     </Section>
 
-    <Section
+    <section
       id="capabilities"
-      title="技术能力支撑"
-      subtitle="技术能力服务于交付结果，不作为页面主卖点。我们根据项目需要组合模型、数据处理、系统对接和维护能力。"
-      tone="blue"
+      class="snap-section section-pad bg-canvas"
     >
-      <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-        {capabilities.map((capability) => (
-          <CapabilityCard title={capability.title} description={capability.description} />
-        ))}
+      <div class="section-inner">
+        <div class="fade-in mx-auto max-w-3xl text-center">
+          <p class="eyebrow mb-3">Technical Support</p>
+          <h2 class="text-3xl font-medium leading-tight text-ink sm:text-5xl">技术能力支撑</h2>
+          <p class="mx-auto mt-5 max-w-2xl text-base leading-8 text-muted sm:text-lg">
+            技术能力服务于交付结果，不作为页面主卖点。我们根据项目需要组合模型、数据处理、系统对接和维护能力。
+          </p>
+        </div>
+
+        <div class="mx-auto mt-10 flex max-w-5xl flex-wrap justify-center gap-3">
+          {capabilities.map((capability) => (
+            <span class="rounded-full border border-black/10 bg-white/[0.56] px-4 py-2.5 text-sm font-medium text-ink shadow-sm backdrop-blur-xl">
+              {capability.title}
+            </span>
+          ))}
+        </div>
       </div>
-    </Section>
+    </section>
 
     <Contact />
   </main>
