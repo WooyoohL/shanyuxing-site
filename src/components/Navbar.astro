@@ -1,9 +1,10 @@
 ---
 const navItems = [
   { label: '首页', href: '#home' },
-  { label: '服务场景', href: '#services' },
-  { label: '技术能力', href: '#capabilities' },
-  { label: '落地示例', href: '#examples' },
+  { label: '适合谁', href: '#audience' },
+  { label: '可交付模块', href: '#services' },
+  { label: '落地场景', href: '#examples' },
+  { label: '合作方式', href: '#service-model' },
   { label: '联系我们', href: '#contact' },
 ];
 
@@ -17,7 +18,7 @@ const showLanguageSwitch = false;
       <span class="text-[0.98rem] font-semibold tracking-normal">山欲行科技</span>
     </a>
 
-    <div class="hidden items-center gap-8 md:flex">
+    <div class="hidden items-center gap-5 lg:flex xl:gap-8">
       {navItems.map((item) => (
         <a class="rounded-full px-3 py-2 text-sm font-medium text-slate-600 transition-all duration-200 hover:bg-white/80 hover:text-brand-700 hover:shadow-sm" href={item.href}>{item.label}</a>
       ))}
@@ -27,7 +28,7 @@ const showLanguageSwitch = false;
     </div>
 
     <button
-      class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200/80 bg-white/70 text-slate-700 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-brand-200 hover:text-brand-700 md:hidden"
+      class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200/80 bg-white/70 text-slate-700 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-brand-200 hover:text-brand-700 lg:hidden"
       type="button"
       aria-label="打开导航菜单"
       aria-expanded="false"
@@ -37,7 +38,7 @@ const showLanguageSwitch = false;
     </button>
   </nav>
 
-  <div class="hidden border-t border-white/70 bg-white/[0.88] px-5 py-4 shadow-[0_18px_36px_rgba(15,23,42,0.08)] backdrop-blur-xl md:hidden" data-mobile-menu>
+  <div class="hidden border-t border-white/70 bg-white/[0.88] px-5 py-4 shadow-[0_18px_36px_rgba(15,23,42,0.08)] backdrop-blur-xl lg:hidden" data-mobile-menu>
     <div class="mx-auto grid max-w-7xl gap-3">
       {navItems.map((item) => (
         <a class="rounded-full px-4 py-2.5 text-sm font-medium text-slate-700 transition-all duration-200 hover:bg-brand-50 hover:text-brand-700" href={item.href} data-menu-link>{item.label}</a>

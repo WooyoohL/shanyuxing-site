@@ -13,11 +13,29 @@ import { capabilities } from '@data/capabilities';
 import { examples } from '@data/examples';
 
 const serviceSteps = [
-  '业务问题初步判断',
+  '项目协作',
+  '功能模块开发',
   '小场景验证',
-  'AI 应用开发',
-  '自动化流程集成',
-  '长期维护与迭代',
+  '工作流集成',
+  '维护与迭代',
+];
+
+const audiences = [
+  {
+    title: '软件公司 / 小程序公司 / 系统集成商',
+    description:
+      '当客户项目需要 AI 功能，但团队暂时缺少模型接入、文本处理、知识库问答或自动化流程经验时，可以作为开发能力补位。',
+  },
+  {
+    title: '电商代运营 / 企业服务商 / 培训咨询公司',
+    description:
+      '当你服务的客户有客服、运营、数据整理或内容处理需求时，可以把 AI 模块作为交付方案的一部分。',
+  },
+  {
+    title: '有明确场景的中小企业',
+    description:
+      '当内部已经知道哪个环节重复、耗时或容易出错时，可以从一个小功能或半自动化流程开始验证。',
+  },
 ];
 ---
 
@@ -27,32 +45,31 @@ const serviceSteps = [
     <Hero />
 
     <Section
-      id="services"
-      title="服务场景"
-      subtitle="围绕真实业务中的重复劳动、信息整理和人工判断环节，设计适合中小团队落地的 AI 应用。"
+      id="audience"
+      title="适合谁"
+      subtitle="更适合已经有明确项目、客户需求或业务场景的团队，从可交付的小模块开始合作。"
       tone="white"
     >
-      <div class="grid gap-5 md:grid-cols-2">
-        {services.map((service, index) => (
-          <ServiceCard title={service.title} description={service.description} index={index + 1} />
+      <div class="grid gap-5 lg:grid-cols-3">
+        {audiences.map((audience, index) => (
+          <article class="surface-card h-full p-6 lg:p-7">
+            <span class="text-sm font-semibold text-brand-600">{String(index + 1).padStart(2, '0')}</span>
+            <h3 class="mt-4 text-xl font-medium leading-7 text-ink">{audience.title}</h3>
+            <p class="mt-4 leading-8 text-slate-600">{audience.description}</p>
+          </article>
         ))}
       </div>
     </Section>
 
     <Section
-      id="capabilities"
-      title="技术能力"
-      subtitle="我们关注的是业务可用性，而不是单纯展示模型能力。技术会根据场景组合使用。"
+      id="services"
+      title="可交付模块"
+      subtitle="不从泛泛方案开始，而是把明确业务环节拆成可开发、可集成、可验收的 AI 功能模块。"
       tone="blue"
     >
       <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-        {capabilities.map((capability) => (
-          <CapabilityCard title={capability.title} description={capability.description} />
-        ))}
-      </div>
-      <div class="mx-auto mt-8 flex max-w-3xl flex-wrap justify-center gap-3">
-        {['大模型', 'RAG', 'Agent', 'API', '自动化工作流'].map((tag) => (
-          <span class="rounded-full border border-brand-100 bg-white/82 px-4 py-2 text-sm font-medium text-brand-700 shadow-sm backdrop-blur">{tag}</span>
+        {services.map((service, index) => (
+          <ServiceCard title={service.title} description={service.description} index={index + 1} />
         ))}
       </div>
     </Section>
@@ -65,15 +82,21 @@ const serviceSteps = [
     >
       <div class="grid gap-5 md:grid-cols-2">
         {examples.map((example) => (
-          <ExampleCard title={example.title} content={example.content} suitableFor={example.suitableFor} />
+          <ExampleCard
+            title={example.title}
+            input={example.input}
+            output={example.output}
+            suitableFor={example.suitableFor}
+            boundary={example.boundary}
+          />
         ))}
       </div>
     </Section>
 
     <Section
       id="service-model"
-      title="服务方式"
-      subtitle="不从大而全系统开始，而是先明确一个可验证的小场景，再根据使用效果逐步扩展。"
+      title="合作方式"
+      subtitle="既可以作为软件公司或企业服务商的 AI 开发补位，也可以围绕单个明确场景做小步交付。"
       tone="slate"
     >
       <ol class="mx-auto grid max-w-5xl gap-4 md:grid-cols-5">
@@ -85,8 +108,21 @@ const serviceSteps = [
         ))}
       </ol>
       <p class="mx-auto mt-8 max-w-3xl text-center leading-7 text-slate-600">
-        适合从小场景开始，小范围验证结果，再逐步扩展到更多业务环节。关键节点保留人工确认，让工具真正服务于现有团队。
+        合作前先明确交付边界、数据来源、使用场景和人工确认节点，优先完成能被真实团队使用的小模块，再根据反馈维护与迭代。
       </p>
+    </Section>
+
+    <Section
+      id="capabilities"
+      title="技术能力支撑"
+      subtitle="技术能力服务于交付结果，不作为页面主卖点。我们根据项目需要组合模型、数据处理、系统对接和维护能力。"
+      tone="blue"
+    >
+      <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        {capabilities.map((capability) => (
+          <CapabilityCard title={capability.title} description={capability.description} />
+        ))}
+      </div>
     </Section>
 
     <Contact />

@@ -9,35 +9,45 @@ const fields = [
   '希望 AI 输出什么结果',
 ];
 
+const surveyUrl = 'https://wj.qq.com/s2/26770365/efb5/';
 const wechatSupportUrl = 'https://work.weixin.qq.com/kfid/kfc3ba5c4dec1252ef0';
+const contactEmail = 'contact@shanyuxing-ai.com';
 ---
 
 <section id="contact" class="snap-section section-pad min-h-[78svh] bg-white">
   <div class="section-inner grid items-start gap-12 lg:grid-cols-[0.95fr_1.05fr]">
     <div class="fade-in">
       <p class="eyebrow mb-3">联系我们</p>
-      <h2 class="text-3xl font-medium tracking-normal text-ink sm:text-4xl">描述你的业务问题</h2>
+      <h2 class="text-3xl font-medium tracking-normal text-ink sm:text-4xl">从项目协作或具体场景开始</h2>
       <p class="mt-5 text-base leading-8 text-slate-600 sm:text-lg">
-        你不需要提前准备完整方案。只要说明当前最重复、最耗时或最容易出错的业务环节，我们会判断是否适合做成 AI 工具或自动化流程。
+        如果你是软件公司、企业服务商或代运营团队，可以先沟通项目协作方式；如果你已经有明确业务场景，可以直接描述需求和现有流程。
       </p>
       <div class="mt-8 flex flex-col gap-3 sm:flex-row">
         <a
           class="pill-button pill-primary"
-          href="https://wj.qq.com/s2/26770365/efb5/"
+          href={wechatSupportUrl}
           target="_blank"
           rel="noreferrer"
         >
-          填写需求表单
+          咨询项目协作
         </a>
-        <button
+        <a
           class="pill-button pill-secondary"
-          type="button"
-          data-copy-email="contact@shanyuxing-ai.com"
-          aria-label="复制邮箱地址 contact@shanyuxing-ai.com"
+          href={surveyUrl}
+          target="_blank"
+          rel="noreferrer"
         >
-          contact@shanyuxing-ai.com
-        </button>
+          描述业务场景
+        </a>
       </div>
+      <button
+        class="mt-4 inline-flex text-sm font-medium text-slate-500 transition-colors hover:text-brand-700"
+        type="button"
+        data-copy-email={contactEmail}
+        aria-label={`复制邮箱地址 ${contactEmail}`}
+      >
+        企业邮箱：{contactEmail}
+      </button>
     </div>
 
     <div class="grid gap-5 md:grid-cols-[1fr_0.82fr]">
@@ -73,7 +83,7 @@ const wechatSupportUrl = 'https://work.weixin.qq.com/kfid/kfc3ba5c4dec1252ef0';
           />
         </a>
         <p class="mt-4 text-sm leading-6 text-slate-500">
-          扫码添加微信客服，或直接打开客服链接
+          扫码咨询项目协作，或直接打开微信客服
         </p>
         <a
           class="mt-4 inline-flex min-h-10 items-center justify-center rounded-full border border-brand-100 bg-white/88 px-4 py-2 text-sm font-semibold text-brand-700 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-brand-200 hover:bg-white hover:text-brand-800 hover:shadow-md active:translate-y-0 active:scale-[0.985]"
