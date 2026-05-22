@@ -8,8 +8,34 @@ import ExampleCard from '@components/ExampleCard.astro';
 import Contact from '@components/Contact.astro';
 import Footer from '@components/Footer.astro';
 import { services } from '@data/services';
+import { capabilities } from '@data/capabilities';
 import { examples } from '@data/examples';
-import { audiences, collaborationPaths, deliveryAssurance, deliveryBoundaries } from '@data/home';
+
+const serviceSteps = [
+  '项目协作',
+  '功能模块开发',
+  '小场景验证',
+  '工作流集成',
+  '维护与迭代',
+];
+
+const audiences = [
+  {
+    title: '软件公司 / 小程序公司 / 系统集成商',
+    description:
+      '适用于已有客户项目，需要补齐模型接入、文本处理、知识库问答或自动化流程经验的团队。',
+  },
+  {
+    title: '电商代运营 / 企业服务商 / 培训咨询公司',
+    description:
+      '适用于客户已有客服、运营、数据整理或内容处理需求，需要将 AI 模块纳入交付方案的服务团队。',
+  },
+  {
+    title: '有明确场景的中小企业',
+    description:
+      '适用于已明确重复、耗时或易出错环节，希望先以单个功能或半自动化流程验证效果的企业。',
+  },
+];
 ---
 
 <BaseLayout>
@@ -20,24 +46,45 @@ import { audiences, collaborationPaths, deliveryAssurance, deliveryBoundaries } 
     <Section
       id="audience"
       title="适合谁"
-      subtitle="适合已经有客户项目、服务交付或明确业务场景的团队，从一个可验收的小模块开始合作。"
+      subtitle="适合已有明确项目、客户需求或业务场景的团队，从可交付的小模块开始合作。"
       tone="white"
     >
-      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      <div class="grid gap-5 lg:grid-cols-3">
         {audiences.map((audience, index) => (
           <article class="surface-card h-full p-6 lg:p-7">
             <span class="text-sm font-semibold text-brand-600">{String(index + 1).padStart(2, '0')}</span>
             <h3 class="mt-5 max-w-sm text-xl font-medium leading-tight text-ink">{audience.title}</h3>
-            <p class="mt-5 leading-8 text-muted">{audience.description}</p>
+            <p class="mt-5 text-[0.96rem] leading-7 text-muted">{audience.description}</p>
           </article>
         ))}
       </div>
     </Section>
 
+    <section
+      id="services"
+      class="snap-section section-pad relative overflow-hidden bg-[radial-gradient(circle_at_18%_4%,rgba(0,113,227,0.08),transparent_30rem)]"
+    >
+      <div class="section-inner grid gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
+        <div class="fade-in lg:sticky lg:top-28">
+          <p class="eyebrow mb-3">Module Delivery</p>
+          <h2 class="max-w-xl text-[2rem] font-medium leading-tight text-ink sm:text-4xl">可交付模块</h2>
+          <p class="mt-5 max-w-xl text-base leading-8 text-muted sm:text-[1.05rem]">
+            围绕明确业务环节，交付可开发、可集成、可验收的 AI 功能模块。
+          </p>
+        </div>
+
+        <div class="grid gap-4">
+          {services.map((service, index) => (
+            <ServiceCard title={service.title} description={service.description} index={index + 1} />
+          ))}
+        </div>
+      </div>
+    </section>
+
     <Section
       id="examples"
-      title="常见业务场景"
-      subtitle="客户通常先从“我遇到什么问题”判断是否适合合作。以下场景适合从真实资料、明确输入和人工确认节点开始验证。"
+      title="常见落地场景"
+      subtitle="以下为常见可交付场景示例，用于说明适合从哪些小场景开始验证，不代表真实客户案例。"
       tone="white"
     >
       <div class="grid gap-5 md:grid-cols-2">
@@ -53,89 +100,47 @@ import { audiences, collaborationPaths, deliveryAssurance, deliveryBoundaries } 
       </div>
     </Section>
 
-    <section
-      id="services"
-      class="snap-section section-pad relative overflow-hidden bg-[radial-gradient(circle_at_18%_4%,rgba(0,113,227,0.08),transparent_30rem)]"
-    >
-      <div class="section-inner grid gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
-        <div class="fade-in lg:sticky lg:top-28">
-          <p class="eyebrow mb-3">Module Delivery</p>
-          <h2 class="max-w-xl text-3xl font-medium leading-tight text-ink sm:text-5xl">可交付模块</h2>
-          <p class="mt-5 max-w-xl text-base leading-8 text-muted sm:text-lg">
-            每个模块都围绕业务问题、典型输入、输出结果和适用场景设计，便于集成到现有产品或流程里。
-          </p>
-        </div>
-
-        <div class="grid gap-4">
-          {services.map((service, index) => (
-            <ServiceCard title={service.title} description={service.description} index={index + 1} />
-          ))}
-        </div>
-      </div>
-    </section>
-
     <Section
       id="service-model"
-      title="如何合作"
-      subtitle="按你当前角色和项目阶段选择合作路径。重点是先把一个真实业务问题做成可用模块，再根据使用效果迭代。"
+      title="合作方式"
+      subtitle="既可以作为软件公司或企业服务商的 AI 开发补位，也可以围绕单个明确场景做小步交付。"
       tone="slate"
     >
-      <div class="grid gap-5 lg:grid-cols-3">
-        {collaborationPaths.map((path, index) => (
-          <article class="surface-card h-full p-6 lg:p-7">
+      <ol class="mx-auto grid max-w-5xl gap-4 md:grid-cols-5">
+        {serviceSteps.map((step, index) => (
+          <li class="surface-card p-5">
             <span class="text-sm font-semibold text-brand-600">{String(index + 1).padStart(2, '0')}</span>
-            <h3 class="mt-5 text-2xl font-medium leading-tight text-ink">{path.title}</h3>
-            <p class="mt-5 rounded-[20px] border border-brand-500/[0.14] bg-brand-50/[0.62] px-4 py-3 text-sm leading-6 text-brand-600">
-              {path.suitableFor}
-            </p>
-            <p class="mt-5 leading-8 text-muted">{path.description}</p>
-          </article>
+            <p class="mt-3 text-base font-medium leading-7 text-ink">{step}</p>
+          </li>
         ))}
-      </div>
+      </ol>
+      <p class="mx-auto mt-8 max-w-3xl text-center text-[0.96rem] leading-7 text-muted">
+        合作前先明确交付边界、数据来源、使用场景和人工确认节点，优先完成能被真实团队使用的小模块，再根据反馈维护与迭代。
+      </p>
     </Section>
 
     <section
-      id="delivery"
+      id="capabilities"
       class="snap-section section-pad bg-canvas"
     >
       <div class="section-inner">
         <div class="fade-in mx-auto max-w-3xl text-center">
-          <p class="eyebrow mb-3">Delivery Control</p>
-          <h2 class="text-3xl font-medium leading-tight text-ink sm:text-5xl">如何保证模块可用</h2>
-          <p class="mx-auto mt-5 max-w-2xl text-base leading-8 text-muted sm:text-lg">
-            交付前先把输入、输出、人工确认、系统集成和验收标准说清楚，让项目可控、可检查、可迭代。
+          <p class="eyebrow mb-3">Technical Support</p>
+          <h2 class="text-[2rem] font-medium leading-tight text-ink sm:text-4xl">技术能力支撑</h2>
+          <p class="mx-auto mt-5 max-w-2xl text-base leading-8 text-muted sm:text-[1.05rem]">
+            技术能力服务于交付结果。我们根据项目需要组合模型、数据处理、系统对接和维护能力。
           </p>
         </div>
 
-        <div class="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-5">
-          {deliveryAssurance.map((item, index) => (
-            <article class="surface-card p-5">
-              <span class="text-sm font-semibold text-brand-600">{String(index + 1).padStart(2, '0')}</span>
-              <h3 class="mt-4 text-lg font-medium leading-tight text-ink">{item.title}</h3>
-              <p class="mt-4 text-sm leading-7 text-muted">{item.description}</p>
-            </article>
+        <div class="mx-auto mt-10 flex max-w-5xl flex-wrap justify-center gap-3">
+          {capabilities.map((capability) => (
+            <span class="rounded-full border border-black/10 bg-white/[0.56] px-4 py-2.5 text-sm font-medium text-ink shadow-sm backdrop-blur-xl">
+              {capability.title}
+            </span>
           ))}
         </div>
       </div>
     </section>
-
-    <Section
-      id="boundaries"
-      title="更适合从明确小场景开始，不适合一上来做大而全系统"
-      subtitle="边界说清楚，项目才更容易落地。我们更关注可验收的小模块和真实工作流，而不是过度承诺。"
-      tone="white"
-    >
-      <div class="surface-card subtle-glow mx-auto max-w-5xl overflow-hidden p-6 sm:p-8 lg:p-10">
-        <div class="grid gap-4 md:grid-cols-2">
-          {deliveryBoundaries.map((boundary) => (
-            <div class="flex gap-3 rounded-[22px] border border-black/10 bg-white/[0.48] p-4 backdrop-blur-xl">
-              <span class="mt-1 h-2.5 w-2.5 shrink-0 rounded-full bg-brand-500"></span>
-              <p class="text-sm leading-7 text-muted sm:text-base">{boundary}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </Section>
 
     <Contact />
   </main>

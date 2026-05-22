@@ -10,15 +10,15 @@ interface Props {
 const { title, input, output, suitableFor, boundary } = Astro.props;
 
 const rows = [
-  ['适合对象', suitableFor],
-  ['输入资料', input],
-  ['输出结果', output],
-  ['交付边界', boundary],
+  ['输入', input],
+  ['输出', output],
+  ['适合', suitableFor],
+  ['边界', boundary],
 ];
 ---
 
 <article class="surface-card flex h-full flex-col p-6 lg:p-7">
-  <h3 class="text-2xl font-medium leading-tight text-ink">{title}</h3>
+  <h3 class="text-xl font-medium leading-tight text-ink">{title}</h3>
   <div class="mt-6 grid flex-1 gap-4">
     {rows.map(([label, value]) => (
       <div class="rounded-[20px] border border-black/10 bg-white/[0.46] p-4">

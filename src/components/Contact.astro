@@ -1,13 +1,4 @@
 ---
-const fields = [
-  '公司/团队类型与行业',
-  '当前业务问题是什么',
-  '现在如何人工处理',
-  '已有资料或系统',
-  '希望 AI 输出什么结果',
-  '预算范围或上线时间要求',
-];
-
 const surveyUrl = 'https://wj.qq.com/s2/26770365/efb5/';
 const wechatSupportUrl = 'https://work.weixin.qq.com/kfid/kfc3ba5c4dec1252ef0';
 const contactEmail = 'contact@shanyuxing-ai.com';
@@ -16,29 +7,29 @@ const contactEmail = 'contact@shanyuxing-ai.com';
 <section id="contact" class="snap-section section-pad bg-canvas">
   <div class="section-inner">
     <div class="surface-card subtle-glow fade-in overflow-hidden p-6 sm:p-8 lg:p-10">
-      <div class="grid items-start gap-10 lg:grid-cols-[0.95fr_1.05fr]">
+      <div class="grid items-center gap-8 lg:grid-cols-[1.05fr_0.95fr]">
         <div>
           <p class="eyebrow mb-3">联系合作</p>
-          <h2 class="max-w-2xl text-3xl font-medium leading-tight tracking-normal text-ink sm:text-5xl">从一个业务问题开始沟通</h2>
-          <p class="mt-5 max-w-2xl text-base leading-8 text-muted sm:text-lg">
-            你可以通过业务场景表单、企业邮箱或企业微信联系。建议先说明当前业务问题、人工处理方式、已有资料或系统，以及希望 AI 输出什么结果。
+          <h2 class="max-w-2xl text-3xl font-medium leading-tight tracking-normal text-ink sm:text-4xl">从项目协作或具体场景开始</h2>
+          <p class="mt-5 max-w-2xl text-base leading-8 text-muted sm:text-[1.05rem]">
+            如果已有客户项目或明确业务场景，可以通过表单、企业邮箱或企业微信沟通。我们会先确认场景、资料、输出结果与交付边界，再判断适合的协作方式。
           </p>
           <div class="mt-8 flex flex-col gap-3 sm:flex-row">
             <a
               class="pill-button pill-primary"
-              href={surveyUrl}
-              target="_blank"
-              rel="noreferrer"
-            >
-              填写业务问题表单
-            </a>
-            <a
-              class="pill-button pill-secondary"
               href={wechatSupportUrl}
               target="_blank"
               rel="noreferrer"
             >
               咨询项目协作
+            </a>
+            <a
+              class="pill-button pill-secondary"
+              href={surveyUrl}
+              target="_blank"
+              rel="noreferrer"
+            >
+              描述业务场景
             </a>
           </div>
           <button
@@ -51,26 +42,12 @@ const contactEmail = 'contact@shanyuxing-ai.com';
           </button>
         </div>
 
-        <div class="grid gap-4 md:grid-cols-[1fr_0.82fr]">
-          <div class="rounded-[24px] border border-black/10 bg-white/[0.46] p-5 backdrop-blur-xl">
-            <h3 class="text-lg font-medium text-ink">合作前请尽量说明</h3>
-            <div class="mt-5 grid gap-2 sm:grid-cols-2">
-              {fields.map((field) => (
-                <span
-                  class:list={[
-                    'flex min-h-11 items-center justify-center rounded-full border border-black/10 bg-white/[0.58] px-3 py-2 text-center text-sm leading-5 text-muted shadow-sm',
-                    field.length >= 8 && 'sm:col-span-2',
-                  ]}
-                >
-                  {field}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          <div class="rounded-[24px] border border-brand-500/[0.14] bg-brand-50/[0.58] p-5 text-center backdrop-blur-xl">
+        <div class="rounded-[26px] border border-brand-500/[0.14] bg-brand-50/[0.46] p-5 text-center backdrop-blur-xl sm:p-6">
+          <div class="mx-auto max-w-xs">
+            <p class="text-sm font-semibold text-brand-600">企业微信咨询</p>
+            <p class="mt-2 text-sm leading-6 text-muted">扫码或打开链接，沟通项目协作与场景需求。</p>
             <a
-              class="mx-auto block max-w-44 overflow-hidden rounded-[22px] bg-white p-2 shadow-sm ring-1 ring-black/10 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md"
+              class="mx-auto mt-5 block max-w-44 overflow-hidden rounded-[22px] bg-white p-2 shadow-sm ring-1 ring-black/10 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md"
               href={wechatSupportUrl}
               target="_blank"
               rel="noreferrer"
@@ -83,9 +60,6 @@ const contactEmail = 'contact@shanyuxing-ai.com';
                 loading="lazy"
               />
             </a>
-            <p class="mt-4 text-sm leading-6 text-muted">
-              扫码咨询项目协作，或直接打开微信客服
-            </p>
             <a
               class="mt-4 inline-flex min-h-10 items-center justify-center rounded-full border border-brand-500/[0.16] bg-white/[0.72] px-4 py-2 text-sm font-medium text-brand-600 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-brand-500/[0.24] hover:bg-white hover:shadow-md active:translate-y-0 active:scale-[0.98]"
               href={wechatSupportUrl}
