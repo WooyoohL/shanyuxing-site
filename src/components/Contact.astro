@@ -8,6 +8,8 @@ const fields = [
   '现在如何处理',
   '希望 AI 输出什么结果',
 ];
+
+const wechatSupportUrl = 'https://work.weixin.qq.com/kfid/kfc3ba5c4dec1252ef0';
 ---
 
 <section id="contact" class="snap-section section-pad min-h-[78svh] bg-white">
@@ -39,30 +41,48 @@ const fields = [
     </div>
 
     <div class="grid gap-5 md:grid-cols-[1fr_0.82fr]">
-      <div class="surface-card p-6">
+      <div class="surface-card flex h-full flex-col justify-center p-6 sm:p-7">
         <h3 class="text-lg font-medium text-ink">填写前可先准备</h3>
-        <div class="mt-5 flex flex-wrap gap-2">
+        <div class="mt-5 grid gap-2 sm:grid-cols-2">
           {fields.map((field) => (
-            <span class="rounded-full border border-slate-100 bg-white/85 px-3 py-2 text-sm text-slate-700 shadow-sm">{field}</span>
+            <span
+              class:list={[
+                'flex min-h-11 items-center justify-center rounded-2xl border border-slate-100 bg-white/88 px-3 py-2 text-center text-sm leading-5 text-slate-700 shadow-sm',
+                field.length >= 8 && 'sm:col-span-2',
+              ]}
+            >
+              {field}
+            </span>
           ))}
         </div>
-        <p class="mt-6 text-sm leading-6 text-slate-500">
-          是否有样例可以说明也可以补充，但第一版不要求上传文件。
-        </p>
       </div>
 
       <div class="surface-card border-dashed border-brand-200/80 bg-brand-50/60 p-6 text-center">
-        <div class="mx-auto max-w-48 overflow-hidden rounded-[1rem] bg-white p-2 shadow-sm ring-1 ring-white/80">
+        <a
+          class="mx-auto block max-w-48 overflow-hidden rounded-[1rem] bg-white p-2 shadow-sm ring-1 ring-white/80 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md"
+          href={wechatSupportUrl}
+          target="_blank"
+          rel="noreferrer"
+          aria-label="打开微信客服"
+        >
           <img
             src={`${import.meta.env.BASE_URL}wechat-qr.png`}
             alt="微信 / 企业微信二维码"
             class="h-auto w-full rounded-[0.75rem]"
             loading="lazy"
           />
-        </div>
+        </a>
         <p class="mt-4 text-sm leading-6 text-slate-500">
-          扫码添加微信 / 企业微信沟通
+          扫码添加微信客服，或直接打开客服链接
         </p>
+        <a
+          class="mt-4 inline-flex min-h-10 items-center justify-center rounded-full border border-brand-100 bg-white/88 px-4 py-2 text-sm font-semibold text-brand-700 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-brand-200 hover:bg-white hover:text-brand-800 hover:shadow-md active:translate-y-0 active:scale-[0.985]"
+          href={wechatSupportUrl}
+          target="_blank"
+          rel="noreferrer"
+        >
+          打开微信客服
+        </a>
       </div>
     </div>
   </div>
