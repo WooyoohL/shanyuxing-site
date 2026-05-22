@@ -1,12 +1,11 @@
 ---
 const fields = [
-  '称呼',
-  '公司或行业',
-  '联系方式',
-  '预算范围',
-  '想解决的业务问题',
-  '现在如何处理',
+  '公司/团队类型与行业',
+  '当前业务问题是什么',
+  '现在如何人工处理',
+  '已有资料或系统',
   '希望 AI 输出什么结果',
+  '预算范围或上线时间要求',
 ];
 
 const surveyUrl = 'https://wj.qq.com/s2/26770365/efb5/';
@@ -20,26 +19,26 @@ const contactEmail = 'contact@shanyuxing-ai.com';
       <div class="grid items-start gap-10 lg:grid-cols-[0.95fr_1.05fr]">
         <div>
           <p class="eyebrow mb-3">联系合作</p>
-          <h2 class="max-w-2xl text-3xl font-medium leading-tight tracking-normal text-ink sm:text-5xl">从项目协作或具体场景开始</h2>
+          <h2 class="max-w-2xl text-3xl font-medium leading-tight tracking-normal text-ink sm:text-5xl">从一个业务问题开始沟通</h2>
           <p class="mt-5 max-w-2xl text-base leading-8 text-muted sm:text-lg">
-            如果你是软件公司、企业服务商或代运营团队，可以先沟通项目协作方式；如果你已经有明确业务场景，可以直接描述需求和现有流程。
+            你可以通过业务场景表单、企业邮箱或企业微信联系。建议先说明当前业务问题、人工处理方式、已有资料或系统，以及希望 AI 输出什么结果。
           </p>
           <div class="mt-8 flex flex-col gap-3 sm:flex-row">
             <a
               class="pill-button pill-primary"
+              href={surveyUrl}
+              target="_blank"
+              rel="noreferrer"
+            >
+              填写业务问题表单
+            </a>
+            <a
+              class="pill-button pill-secondary"
               href={wechatSupportUrl}
               target="_blank"
               rel="noreferrer"
             >
               咨询项目协作
-            </a>
-            <a
-              class="pill-button pill-secondary"
-              href={surveyUrl}
-              target="_blank"
-              rel="noreferrer"
-            >
-              描述业务场景
             </a>
           </div>
           <button
@@ -54,7 +53,7 @@ const contactEmail = 'contact@shanyuxing-ai.com';
 
         <div class="grid gap-4 md:grid-cols-[1fr_0.82fr]">
           <div class="rounded-[24px] border border-black/10 bg-white/[0.46] p-5 backdrop-blur-xl">
-            <h3 class="text-lg font-medium text-ink">填写前可先准备</h3>
+            <h3 class="text-lg font-medium text-ink">合作前请尽量说明</h3>
             <div class="mt-5 grid gap-2 sm:grid-cols-2">
               {fields.map((field) => (
                 <span
