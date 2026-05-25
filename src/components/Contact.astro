@@ -1,5 +1,4 @@
 ---
-const surveyUrl = 'https://wj.qq.com/s2/26770365/efb5/';
 const wechatSupportUrl = 'https://work.weixin.qq.com/kfid/kfc3ba5c4dec1252ef0';
 const contactEmail = 'contact@shanyuxing-ai.com';
 ---
@@ -12,28 +11,10 @@ const contactEmail = 'contact@shanyuxing-ai.com';
           <p class="eyebrow mb-3">联系合作</p>
           <h2 class="max-w-2xl font-display text-3xl font-semibold leading-[1.12] tracking-[-0.012em] text-ink sm:text-4xl">从项目协作或具体场景开始</h2>
           <p class="mt-5 max-w-2xl font-sans text-base leading-[1.7] text-muted sm:text-[1.05rem]">
-            如果已有客户项目或明确业务场景，可以通过表单、企业邮箱或企业微信沟通。我们会先确认场景、资料、输出结果与交付边界，再判断适合的协作方式。
+            如果已有客户项目或明确业务场景，可以通过企业微信客服或企业邮箱沟通。我们会先确认场景、资料、输出结果与交付边界，再判断适合的协作方式。
           </p>
-          <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-            <a
-              class="pill-button pill-primary"
-              href={wechatSupportUrl}
-              target="_blank"
-              rel="noreferrer"
-            >
-              咨询项目协作
-            </a>
-            <a
-              class="pill-button pill-secondary"
-              href={surveyUrl}
-              target="_blank"
-              rel="noreferrer"
-            >
-              描述业务场景
-            </a>
-          </div>
           <button
-            class="mt-5 inline-flex rounded-full text-sm font-medium text-muted transition-colors hover:text-brand-600"
+            class="mt-7 inline-flex min-h-11 items-center rounded-full border border-black/10 bg-white/[0.58] px-4 py-2.5 font-sans text-sm font-medium text-muted shadow-sm backdrop-blur-xl transition-colors hover:text-brand-600"
             type="button"
             data-copy-email={contactEmail}
             aria-label={`复制邮箱地址 ${contactEmail}`}
@@ -46,12 +27,9 @@ const contactEmail = 'contact@shanyuxing-ai.com';
           <div class="mx-auto max-w-xs">
             <p class="font-display text-sm font-semibold text-brand-600">企业微信咨询</p>
             <p class="mt-2 font-sans text-sm leading-[1.65] text-muted">扫码或打开链接，沟通项目协作与场景需求。</p>
-            <a
-              class="mx-auto mt-5 block max-w-44 overflow-hidden rounded-[22px] bg-white p-2 shadow-sm ring-1 ring-black/10 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md"
-              href={wechatSupportUrl}
-              target="_blank"
-              rel="noreferrer"
-              aria-label="打开微信客服"
+            <div
+              class="mx-auto mt-5 block max-w-44 overflow-hidden rounded-[22px] bg-white p-2 shadow-sm ring-1 ring-black/10"
+              aria-label="微信 / 企业微信二维码"
             >
               <img
                 src={`${import.meta.env.BASE_URL}wechat-qr.png`}
@@ -59,7 +37,7 @@ const contactEmail = 'contact@shanyuxing-ai.com';
                 class="h-auto w-full rounded-[16px]"
                 loading="lazy"
               />
-            </a>
+            </div>
             <a
               class="mt-4 inline-flex min-h-10 items-center justify-center rounded-full border border-brand-500/[0.16] bg-white/[0.72] px-4 py-2 text-sm font-medium text-brand-600 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-brand-500/[0.24] hover:bg-white hover:shadow-md active:translate-y-0 active:scale-[0.98]"
               href={wechatSupportUrl}
